@@ -1,8 +1,16 @@
-@startuml Stopping and Parking on Priority Roads
+@startuml Stopping and Parking by Road Type
 
-title Stopping & Parking on Priority Roads (Vorfahrtsstraße)
+legend right
+  **Legend**
+  ───────────────────────────────
+  <back:#FFD9C0>                    </back> Priority Road (Vorfahrtsstraße)
+  <back:#D9F5D9>                    </back> Non-Priority Road (Normale Straße)
+  <back:#CCE5FF>                    </back> Autobahn
+endlegend
 
-partition "Outside Built-Up Area (Außerorts)" {
+title Stopping & Parking — Rules by Road Type (§12–14 StVO)
+
+partition "Priority Road — Außerorts (Outside Built-Up Area)" #FFD9C0 {
     start
     if (Do you want to park?) then (yes)
         :PROHIBITED;
@@ -31,7 +39,7 @@ partition "Outside Built-Up Area (Außerorts)" {
     endif
 }
 
-partition "Inside Built-Up Area (Innerorts)" {
+partition "Priority Road — Innerorts (Inside Built-Up Area)" #FFD9C0 {
     start
     if (Do you want to park?) then (yes)
         if (Are there prohibiting signs?\n(no-waiting / no-stopping)) then (yes)
@@ -58,8 +66,36 @@ partition "Inside Built-Up Area (Innerorts)" {
     stop
 }
 
+partition "Non-Priority Road (Normale Straße)" #D9F5D9 {
+    start
+    if (Do you want to park?) then (yes)
+        if (Are there prohibiting signs?) then (yes)
+            :Follow the sign restriction;
+        else (no)
+            :Parking **PERMITTED**;
+            note right
+                Normal parking rules apply.
+                Use the shoulder if one exists
+                rather than the carriageway.
+            end note
+        endif
+    else (no — brief stop only)
+        if (Is a shoulder (Seitenstreifen) available?) then (yes)
+            :Stop on the **shoulder**;
+            note right
+                Prefer the shoulder over
+                the carriageway edge.
+            end note
+        else (no)
+            :Stop at the far **right edge**\nof the road;
+            :Turn on **hazard lights**;
+            :Place **warning triangle** ~100m back;
+        endif
+    endif
+    stop
+}
 
-partition "Autobahn Hard Shoulder (Standstreifen)" {
+partition "Autobahn Hard Shoulder (Standstreifen)" #CCE5FF {
     start
     if (Genuine emergency or breakdown?) then (yes)
         :Pull onto hard shoulder as far right as possible;

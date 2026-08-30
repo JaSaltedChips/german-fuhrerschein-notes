@@ -1,7 +1,5 @@
 # Towing Rules (Abschleppen & Anhänger) — Germany
 
-![Towing Rules](../puml/towing/Towing%20Rules.png)
-
 ## Overview
 
 Towing in Germany covers two distinct situations, each governed by its own set of rules:
@@ -175,3 +173,5 @@ Electric vehicles are nearly silent at low speeds, which poses a danger to pedes
 | Connection max length | N/A | **5 metres** |
 | Motorcycles | Can tow trailer (with correct licence) | **Cannot tow or be towed — must be loaded onto flatbed** |
 | Electric vehicles | Normal trailer rules apply | **Cannot be flat-towed — must be loaded onto flatbed** |
+
+![Towing Rules](../puml/towing/Towing%20Rules.png)

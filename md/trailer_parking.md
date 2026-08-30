@@ -86,4 +86,4 @@ When dealing with a trailer parking question, work through these in order:
    - Yes → also check the day and time before parking in a built-up area
    - No → the 2-week general rule applies without further restriction
 
-![Trailer Parking](../puml/trailer_parking/Trailer Parking Rules.png)
+![Trailer Parking](../puml/trailer_parking/Trailer%20Parking%20Rules.png)

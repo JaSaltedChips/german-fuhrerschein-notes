@@ -1,0 +1,205 @@
+@startuml Germany_Trailer_Rules
+!theme plain
+skinparam defaultFontSize 12
+
+title Germany — Trailer Rules: Complete Exam Reference (StVO / StVZO)\nCompanion to: stvo_trailer_flowchart.puml (load dimensions and cargo compliance)
+
+start
+
+' ══════════════════════════════════════════════
+' STEP 1 — LICENCE CLASS
+' ══════════════════════════════════════════════
+:STEP 1 — What licence class do I need to tow?;
+
+if (Trailer weight ≤ 750 kg\nAND combined total ≤ 3,500 kg?) then (YES)
+  #LightGreen:Class B sufficient
+  No extension needed;
+else (NO)
+  if (Combined total between 3,500 kg and 4,250 kg?) then (YES)
+    #Yellow:Class B96 required
+    Extension to standard Class B;
+  else (NO — combined > 4,250 kg)
+    if (Vehicle ≤ 3,500 kg AND trailer ≤ 3,500 kg\nAND combined ≤ 7,000 kg?) then (YES)
+      #Orange:Class BE required;
+    else (NO)
+      #Pink:Higher licence class required
+      (Class C / CE — beyond standard car licence);
+    endif
+  endif
+endif
+
+' ══════════════════════════════════════════════
+' STEP 2 — SPEED LIMITS
+' ══════════════════════════════════════════════
+:STEP 2 — What speed limits apply to my combination?;
+
+if (Towing vehicle permissible mass > 3.5 t?) then (YES)
+  :**Urban: 50 km/h | Rural: 60 km/h | Autobahn: 80 km/h**
+  Trucks > 3.5 t / Motorhomes > 3.5 t / Buses + trailer;
+else (NO — towing vehicle ≤ 3.5 t)
+  if (Tempo-100 certification obtained?) then (YES)
+    #LightGreen:**Urban: 50 km/h | Rural: 80 km/h | Autobahn: 100 km/h**
+    Tempo-100 applies on Autobahn and Kraftfahrstraße ONLY
+    Rural Bundesstraße (non-expressway) remains 80 km/h;
+  else (NO)
+    :**Urban: 50 km/h | Rural: 80 km/h | Autobahn: 80 km/h**;
+  endif
+endif
+
+' ══════════════════════════════════════════════
+' STEP 3 — TEMPO-100 ELIGIBILITY
+' ══════════════════════════════════════════════
+:STEP 3 — Is my trailer eligible for Tempo-100?;
+
+if (Trailer has brakes + shock absorbers\n+ approved anti-sway coupling device?) then (YES)
+  #LightGreen:ELIGIBLE — Tempo-100 permitted
+  Max trailer weight = car empty weight × **1.2**
+  (Caravans and touring trailers);
+elseif (Trailer has brakes + shock absorbers\n(no anti-sway coupling)?) then (YES)
+  #LightGreen:ELIGIBLE — Tempo-100 permitted
+  Max trailer weight = car empty weight × **1.1**
+  (Standard braked trailer with shock absorbers);
+else (Unbraked OR braked without shock absorbers)
+  #Pink:NOT eligible for Tempo-100
+  Max trailer weight = car empty weight × **0.3**
+  Maximum 80 km/h on all road types;
+endif
+
+note right
+  Tempo-100 sticker must be affixed
+  visibly inside the vehicle (e.g. dashboard).
+  Without sticker: 80 km/h limit applies
+  even if trailer meets weight ratio.
+end note
+
+' ══════════════════════════════════════════════
+' STEP 4 — FOLLOWING DISTANCE
+' ══════════════════════════════════════════════
+:STEP 4 — Following distance rules;
+
+if (Total combination length > 7 metres?) then (YES)
+  #Yellow:**Minimum 50 metres following distance required**
+  On roads outside built-up areas
+  with only one lane per direction.
+  Purpose: allow overtaking vehicles to pull in
+  safely IN FRONT of your combination.
+  (Gap must be sufficient at the FRONT — not behind you);
+else (NO — combination ≤ 7 m)
+  :Standard following distance rules apply;
+endif
+
+' ══════════════════════════════════════════════
+' STEP 5 — TRAILER SNAKING (Schlingern)
+' ══════════════════════════════════════════════
+:STEP 5 — Trailer begins to snake / sway (Schlingern);
+
+#Pink:**DO NOT brake sharply**
+**DO NOT accelerate**
+Ease off the accelerator gently and smoothly.
+Hold the steering wheel firmly — do not steer against the sway.
+Allow the combination to slow naturally.
+Only apply brakes gently once swaying reduces.;
+
+note right
+  Common causes of snaking:
+  — Speed too high for conditions
+  — Load positioned too far to rear of trailer
+  — Insufficient vertical load (Stützlast) on tow ball
+  — Strong crosswind or gust from passing truck
+  — Tyre blowout on trailer
+  — Worn or damaged trailer tyres
+end note
+
+stop
+
+legend right
+  ══════════════════════════════════════════════════════════════════════════
+  LICENCE CLASSES AT A GLANCE
+  ══════════════════════════════════════════════════════════════════════════
+  Class B:    Vehicle ≤ 3,500 kg | Trailer ≤ 750 kg OR combined ≤ 3,500 kg
+  Class B96:  Vehicle ≤ 3,500 kg | Combined 3,500 kg to 4,250 kg
+  Class BE:   Vehicle ≤ 3,500 kg | Trailer ≤ 3,500 kg | Combined ≤ 7,000 kg
+  ══════════════════════════════════════════════════════════════════════════
+  SPEED LIMITS (Urban / Rural / Autobahn)
+  ══════════════════════════════════════════════════════════════════════════
+  Towing vehicle ≤ 3.5 t, no Tempo-100:            50 /  80 /  80 km/h
+  Towing vehicle ≤ 3.5 t, with Tempo-100:          50 /  80 / 100 km/h
+  Towing vehicle > 3.5 t with trailer:             50 /  60 /  80 km/h
+  Tempo-100 only applies on Autobahn / Kraftfahrstraße — NOT rural Bundesstraße
+  ══════════════════════════════════════════════════════════════════════════
+  TEMPO-100 WEIGHT RATIOS (max trailer = car empty weight × factor)
+  ══════════════════════════════════════════════════════════════════════════
+  Unbraked / braked without shock absorbers:        × 0.3  — NOT Tempo-100
+  Braked + shock absorbers:                         × 1.1  — Tempo-100 eligible
+  Caravan + shock absorbers + anti-sway coupling:   × 1.2  — Tempo-100 eligible
+  Tempo-100 sticker must be visible inside the vehicle
+  ══════════════════════════════════════════════════════════════════════════
+  VERTICAL LOAD — Stützlast
+  ══════════════════════════════════════════════════════════════════════════
+  The downward force of the trailer drawbar pressing on the tow ball
+  Too much → overloads rear axle — impairs steering and braking
+  Too little → trailer snakes and sways dangerously
+  Correct range → found in Zulassungsbescheinigung Teil I and owner's manual
+  Typical value: 25–100 kg depending on vehicle
+  ══════════════════════════════════════════════════════════════════════════
+  LOAD DISTRIBUTION IN TRAILER
+  ══════════════════════════════════════════════════════════════════════════
+  Place heavy items: LOW and FORWARD (over or just ahead of the axle)
+  Target weight split: 60% front / 40% rear
+  Ensures correct Stützlast on tow ball
+  Prevents trailer snaking
+  (See also: stvo_trailer_flowchart.puml for full load compliance rules)
+  ══════════════════════════════════════════════════════════════════════════
+  UNBRAKED vs BRAKED TRAILERS
+  ══════════════════════════════════════════════════════════════════════════
+  Unbraked trailer: maximum permissible weight = 750 kg
+  Braked trailer (Auflaufbremse / overrun brake): higher limit — see documents
+  Overrun brake: activates automatically when car decelerates
+  (trailer pushes forward into coupling → activates trailer brakes)
+  ══════════════════════════════════════════════════════════════════════════
+  DOCUMENTS — Where to find vehicle-specific trailer data
+  ══════════════════════════════════════════════════════════════════════════
+  Zulassungsbescheinigung Teil I: must carry in car — officially approved data
+  Zulassungsbescheinigung Teil II: ownership document — kept at home (NOT in car)
+  Owner's manual (Fahrzeughandbuch): manufacturer specifications
+  Trailer has its own Zulassungsbescheinigung — must also be carried
+  ══════════════════════════════════════════════════════════════════════════
+  COUPLING SAFETY CHECKS (before every departure)
+  ══════════════════════════════════════════════════════════════════════════
+  1. Tow ball coupling locked — check indicator (green = locked)
+  2. Safety chain / break-away cable connected
+  3. Brake connection line connected (braked trailers)
+  4. Lighting cable connected — walk around and check ALL lights:
+     indicators, brake lights, rear lights, number plate light
+  5. Trailer tyres: correct pressure and legal tread depth
+  6. Load secured and within permitted limits
+  7. Number plate on trailer: visible, clean, and lit at night
+  8. Trailer handbrake released before moving
+  ══════════════════════════════════════════════════════════════════════════
+  LIGHTING REQUIREMENTS ON TRAILER
+  ══════════════════════════════════════════════════════════════════════════
+  Required: rear lights, brake lights, indicators, rear reflectors
+  Rear fog light: required if trailer obscures car's rear fog light
+  Number plate light: required
+  Side marker lights: required on trailers over 6 metres long
+  ══════════════════════════════════════════════════════════════════════════
+  PASSENGERS IN TRAILER
+  ══════════════════════════════════════════════════════════════════════════
+  STRICTLY FORBIDDEN — no passengers may travel inside a trailer
+  Applies even if the trailer is enclosed or fitted with seats
+  ══════════════════════════════════════════════════════════════════════════
+  REVERSING WITH TRAILER
+  ══════════════════════════════════════════════════════════════════════════
+  Steer in the OPPOSITE direction to where the trailer should go
+  Use small, gentle steering inputs — trailer amplifies corrections
+  Reverse slowly — have a second person guide where possible
+  ══════════════════════════════════════════════════════════════════════════
+  FOLLOWING DISTANCE RULE
+  ══════════════════════════════════════════════════════════════════════════
+  Combination > 7 m: minimum 50 m gap from vehicle ahead
+  Only on roads outside built-up areas with one lane per direction
+  Gap must be at the FRONT of your combination — for overtakers to pull in
+  ══════════════════════════════════════════════════════════════════════════
+endlegend
+
+@enduml

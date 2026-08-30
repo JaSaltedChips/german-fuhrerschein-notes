@@ -1,0 +1,72 @@
+@startuml Germany_Lateral_Load_Rules
+!theme plain
+skinparam defaultFontSize 13
+
+title Germany — Lateral (Sideways) Load Overhang Rules\n(StVO §22)
+
+start
+
+:Load carried on vehicle;
+
+if (Load extends laterally more than 40 cm\nbeyond outer edge of vehicle's\nparking / side lights?) then (YES — marking required)
+
+  if (Daytime / good visibility?) then (YES)
+    :Passive marking is sufficient\n(e.g. flag or reflector);
+  else (NO — night or poor visibility)
+    #LightYellow:**Active lighting is MANDATORY**
+    Reflectors and flags alone
+    are NOT sufficient at night;
+
+    fork
+      :FRONT of protruding load
+      ──────────────────────
+      Attach a **white light**
+      facing oncoming traffic;
+
+    fork again
+      :REAR of protruding load
+      ──────────────────────
+      Attach a **red light**
+      facing trailing traffic;
+
+    end fork
+
+    :Apply mounting constraints to both lights;
+
+    note right
+      **Mounting Rules:**
+      ▸ Max height above road: **1.5 m**
+      ▸ Position: fixed at the
+        **outermost edge** of the load
+        (not the car body) so other
+        drivers can judge true total width
+    end note
+
+  endif
+
+else (NO — protrusion ≤ 40 cm)
+  :No special lateral marking required;
+endif
+
+#LightGreen:Lateral load marking is legally compliant;
+stop
+
+legend right
+  **Key Limits at a Glance**
+  ──────────────────────────────────────────────
+  Lateral overhang trigger:    > 40 cm beyond
+                               outer parking lights
+  Night marking:               active lights only
+                               (no flags/reflectors alone)
+  Front light colour:          white
+  Rear light colour:           red
+  Max mounting height:         1.5 m above road
+  Light position:              outermost edge of load
+  ──────────────────────────────────────────────
+  Why it matters: standard headlights/taillights
+  only show the width of the car body — a lateral
+  overhang without its own lights is invisible
+  to overtaking drivers, cyclists, and pedestrians.
+endlegend
+
+@enduml

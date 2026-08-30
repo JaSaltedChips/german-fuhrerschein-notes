@@ -1,0 +1,110 @@
+@startuml Towing Rules
+
+title Towing Rules (Abschleppen & Anhänger) — Quick Reference
+
+start
+
+if (What are you towing?) then (trailer\n(Anhänger))
+
+    partition "Towing a Trailer — Speed Limits" {
+        :Inside built-up area: **50 km/h**\nOutside built-up area: **80 km/h**\nMotorway: **80 km/h**;
+        if (Does trailer have 100 km/h approval sticker?) then (yes)
+            :Outside built-up area and motorway\nincreased to **100 km/h**;
+        else (no)
+            :80 km/h limit remains;
+        endif
+    }
+
+    partition "Towing a Trailer — Safety Requirements" {
+        :Trailer mass exceeds 750 kg?;
+        if (yes) then (yes)
+            :Trailer must have its own\n**braking system**;
+        endif
+        :Safety chain or cable as\n**backup coupling** required;
+        :Trailer must have **rear lights,\nbrake lights, indicators**;
+        :Towing vehicle **number plate**\ndisplayed at rear of trailer;
+        :Adequate **rear visibility** —\nextended mirrors if trailer\nis wider than towing vehicle;
+    }
+
+    partition "Towing a Trailer — Licence" {
+        if (Combined weight of car + trailer\nexceeds 3,500 kg?) then (yes)
+            :Licence **Class BE** required;
+        else (no)
+            :Licence **Class B** sufficient;
+        endif
+    }
+
+else (broken-down\nvehicle)
+
+    partition "Towing a Broken-Down Vehicle — Eligibility" {
+        if (Is the broken-down vehicle\na motorcycle?) then (yes)
+            :Towing by rope or bar **PROHIBITED**;
+            note right
+                Motorcycles cannot balance
+                on two wheels while being towed.
+                Must be loaded onto a
+                recovery vehicle or trailer.
+            end note
+            stop
+        else (no)
+            :Continue;
+        endif
+
+        if (Is the broken-down vehicle\nan electric vehicle (EV)?) then (yes)
+            :Flat-towing **PROHIBITED**;
+            note right
+                Driven wheels rotating while towed
+                cause the motor to act as a generator
+                — overheating, battery damage, and
+                unexpected braking forces result.
+                Must be loaded onto a flatbed
+                recovery vehicle with all wheels
+                lifted off the ground.
+                ----
+                Also warn responders of high-voltage
+                system after any accident.
+                EV battery fires can reignite
+                hours or days later.
+            end note
+            stop
+        else (no)
+            :Continue;
+        endif
+
+        if (Is the breakdown on a motorway?) then (yes)
+            :Towing on motorway **PROHIBITED**;
+            note right
+                Call professional recovery
+                service (e.g. ADAC).
+            end note
+            stop
+        else (no)
+            :Towing permitted — continue;
+        endif
+    }
+
+    partition "Towing a Broken-Down Vehicle — Rules" {
+        :Maximum speed: **50 km/h**;
+        :Hazard lights on **both vehicles**;
+        :Driver must be inside\nthe **towed vehicle** to\nsteer and brake;
+        :Destination: **nearest garage only**;
+    }
+
+    partition "Connection Between Vehicles" {
+        :Maximum connection length: **5 metres**;
+        if (Is connection clearly visible\nto other road users?) then (no)
+            :Mark with **warning flag**\nor brightly coloured cloth;
+        endif
+        note right
+            Tow bar (rigid): safer,
+            no slack, fixed distance.
+            Tow rope (flexible): requires
+            more skill from towed driver.
+        end note
+    }
+
+endif
+
+stop
+
+@enduml

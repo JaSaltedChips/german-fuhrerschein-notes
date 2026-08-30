@@ -1,0 +1,86 @@
+@startuml Germany_Speed_Limits
+!theme plain
+skinparam defaultFontSize 13
+
+title Germany — Speed Limits, Weight Thresholds & Licence Classes (StVO)
+
+start
+
+:Vehicle to be driven on German roads;
+
+if (Is a trailer attached? (Gespann)) then (YES)
+
+  if (Combined total weight ≤ 3.5 t?) then (YES — light combination)
+    if (Tempo-100 certification sticker present?) then (YES)
+      #LightGreen:**Urban: 50 km/h | Rural: 80 km/h | Autobahn: 100 km/h**
+      Applies to: Cars / Trucks ≤ 3.5 t / Motorhomes ≤ 3.5 t + trailer;
+    else (NO)
+      :**Urban: 50 km/h | Rural: 80 km/h | Autobahn: 80 km/h**
+      Applies to: Cars / Trucks ≤ 3.5 t / Motorhomes ≤ 3.5 t + trailer;
+    endif
+  else (NO — towing vehicle > 3.5 t)
+    :**Urban: 50 km/h | Rural: 60 km/h | Autobahn: 80 km/h**
+    Applies to: Trucks > 3.5 t / Motorhomes > 3.5 t / Buses + trailer;
+  endif
+
+else (NO — single vehicle)
+
+  if (Vehicle weight > 7.5 t?) then (YES)
+    #Pink:**Urban: 50 km/h | Rural: 60 km/h | Autobahn: 60 km/h**
+    Any vehicle over 7.5 t
+    Sunday driving ban applies to commercial trucks;
+  else (NO — weight ≤ 7.5 t)
+    if (Vehicle type?) then (Truck / Lkw  3.5 t – 7.5 t)
+      :**Urban: 50 km/h | Rural: 80 km/h | Autobahn: 80 km/h**;
+    elseif (Motorhome  3.5 t – 7.5 t) then
+      :**Urban: 50 km/h | Rural: 80 km/h | Autobahn: 100 km/h**;
+    elseif (Bus — no standing passengers) then
+      if (Certified for 100 km/h?) then (YES)
+        :#LightGreen:**Urban: 50 km/h | Rural: 80 km/h | Autobahn: 100 km/h**;
+      else (NO)
+        :**Urban: 50 km/h | Rural: 80 km/h | Autobahn: 80 km/h**;
+      endif
+    else (Car / Motorbike / Truck / Motorhome ≤ 3.5 t)
+      #LightGreen:**Urban: 50 km/h | Rural: 100 km/h | Autobahn: 130 km/h***
+      *Recommended only — no general motorway limit unless posted;
+    endif
+  endif
+
+endif
+
+stop
+
+legend right
+  **Speed Limits at a Glance (Urban / Rural / Autobahn)**
+  ─────────────────────────────────────────────────────────────────────────
+  SINGLE VEHICLES (no trailer)
+  Cars / Motorbikes / Trucks / Motorhomes ≤ 3.5 t:    50 / 100 / 130* km/h
+  Motorhomes 3.5 t – 7.5 t:                           50 /  80 / 100  km/h
+  Trucks (Lkw) 3.5 t – 7.5 t:                         50 /  80 /  80  km/h
+  Buses (no standing passengers, standard):            50 /  80 /  80  km/h
+  Buses (certified):                                   50 /  80 / 100  km/h
+  Any vehicle > 7.5 t:                                 50 /  60 /  60  km/h
+  ─────────────────────────────────────────────────────────────────────────
+  TRAILERS — Gespanne
+  Combined ≤ 3.5 t (standard):                         50 /  80 /  80  km/h
+  Combined ≤ 3.5 t (Tempo-100 certified):              50 /  80 / 100  km/h
+  Towing vehicle > 3.5 t with trailer:                 50 /  60 /  80  km/h
+  ─────────────────────────────────────────────────────────────────────────
+  * Recommended only — no general Autobahn speed limit in Germany
+  ─────────────────────────────────────────────────────────────────────────
+  TEMPO-100 WEIGHT RATIOS (max trailer = car empty weight × factor)
+  Unbraked / braked without shock absorbers:    × 0.3
+  Braked with shock absorbers:                  × 1.1
+  Caravan + shock absorbers + anti-sway device: × 1.2
+  ─────────────────────────────────────────────────────────────────────────
+  CRITICAL WEIGHT THRESHOLDS
+  3,500 kg: Divides standard from heavy vehicle rules (licence, speed, overtaking)
+  7,500 kg: Triggers Sunday driving ban + strict rural/motorway speed limits
+  ─────────────────────────────────────────────────────────────────────────
+  LICENCE CLASSES
+  Class B:   Vehicle ≤ 3,500 kg | Trailer ≤ 750 kg OR combined ≤ 3,500 kg
+  Class B96: Vehicle ≤ 3,500 kg | Combined 3,500 kg to 4,250 kg
+  Class BE:  Vehicle ≤ 3,500 kg | Trailer ≤ 3,500 kg | Combined ≤ 7,000 kg
+endlegend
+
+@enduml

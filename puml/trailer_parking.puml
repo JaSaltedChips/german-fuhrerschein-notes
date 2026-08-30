@@ -1,0 +1,67 @@
+@startuml Trailer Parking Rules
+
+title Trailer Parking Rules (Anhänger parken) — §12 StVO
+
+start
+
+:Trailer to be parked;
+
+if (Is trailer attached to a towing vehicle?) then (yes)
+    :Normal parking rules apply;
+    stop
+else (no — detached trailer)
+
+    if (Inside built-up area (innerorts)?) then (yes)
+
+        :May park for a maximum of **2 weeks**;
+        note right
+            After 2 weeks the trailer
+            must be moved regardless
+            of size or mass.
+        end note
+
+        if (Permissible total mass exceeds 2 tonnes?) then (yes)
+
+            if (Is it Sunday, a public holiday,\nor between 22:00 and 06:00?) then (yes)
+
+                if (Is the location an industrial area,\ncommercial area, or specially\ndesignated parking area?) then (yes)
+                    :Parking **PERMITTED**;
+                    note right
+                        Industrial (Industriegebiet),
+                        commercial (Gewerbegebiet),
+                        or designated heavy vehicle
+                        parking area only.
+                    end note
+                else (no)
+                    :Parking **PROHIBITED**;
+                    note right
+                        Residential streets, normal
+                        car parks, and general
+                        roadside parking not permitted
+                        during restricted times.
+                    end note
+                endif
+
+            else (no — Mon to Sat, 06:00–22:00)
+                :Parking **PERMITTED**\nwithin the 2-week limit;
+            endif
+
+        else (no — 2 tonnes or under)
+            :Parking **PERMITTED**\nwithin the 2-week limit;
+        endif
+
+    else (no — outside built-up area (außerorts))
+        :Parking **PROHIBITED**;
+        note right
+            No grace period.
+            Detached trailers may not
+            park outside built-up areas
+            at all — regardless of mass.
+        end note
+    endif
+
+endif
+
+stop
+
+@enduml

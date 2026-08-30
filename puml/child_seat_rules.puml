@@ -1,0 +1,92 @@
+  @startuml Germany_Child_Car_Safety
+  !theme plain
+  skinparam defaultFontSize 13
+
+  title Germany — Child Car Seat Rules\n(StVO §21)
+
+  start
+
+  :Child in vehicle;
+
+  if (Child < 12 years old\nAND < 150 cm tall?) then (YES)
+
+    if (< 15 months old\nOR < 76 cm tall?) then (YES — Infant)
+
+      :**INFANT**
+      Must use rear-facing
+      infant capsule (Babyschale);
+
+      if (Placed in front passenger seat?) then (YES)
+        #Pink:**MANDATORY: Deactivate airbag!**
+        Active airbag with a rear-facing seat
+        can cause fatal injuries;
+      else (rear seat)
+        :Rear seat placement;
+      endif
+
+    else (NO)
+
+      if (Age 1–4 years\nOR weight 9–18 kg?) then (YES — Toddler)
+
+        :**TODDLER**
+        Group I seat with integrated
+        5-point harness or impact shield
+        (child secured by seat harness,\nnot the vehicle seatbelt);
+
+      else (NO — Child ~5 to 11 years)
+
+        :**CHILD (approx. 5–11 years)**
+        Group II or Group III
+        high-back booster seat;
+
+        note right
+          Typical 5-year-old:
+          105–115 cm / 15–25 kg.
+          Vehicle 3-point seatbelt routed
+          through booster seat guides —
+          must cross chest, NOT neck.
+          ADAC recommends full backrest
+          + head support over backless cushion.
+        end note
+
+        if (Placed in front passenger seat?) then (YES)
+          :Legal, but rear seats\nare statistically safer;
+        else (rear seat)
+          :Rear seat recommended;
+        endif
+
+      endif
+
+    endif
+
+    :Check seat for orange ECE approval label;
+
+    if (Certified with ECE R44/03,\nECE R44/04, or UN R129 (i-Size)?) then (YES — compliant)
+      :Seat is legally valid in Germany;
+    else (NO — e.g. US-standard seat)
+      #Pink:**ILLEGAL:**
+      Non-EU certified seats cannot
+      be used legally in Germany;
+      stop
+    endif
+
+  else (NO — 12+ years or 150+ cm)
+    :Standard adult 3-point seatbelt applies;
+  endif
+
+  #LightGreen:Journey is legally compliant;
+  stop
+
+  legend right
+    **Fines under StVO §21**
+    ─────────────────────────────────────
+    Child completely unsecured:
+      €60 fine + 1 Flensburg point
+    Multiple children improperly secured:
+      €70 fine + 1 Flensburg point
+    ─────────────────────────────────────
+    **Valid certifications:**
+    ECE R44/03 | ECE R44/04 | UN R129
+  endlegend
+
+  @enduml

@@ -1,0 +1,129 @@
+@startuml StVO_Trailer_Load_Regulations
+!theme plain
+skinparam defaultFontSize 13
+
+title Germany StVO — Trailer Load Compliance Check
+
+start
+
+:Load cargo onto trailer;
+
+' ── DIMENSIONS ───────────────────────────────
+if (Total height (vehicle + load) ≤ 4.00 m?) then (YES)
+else (NO)
+  #Pink:**ILLEGAL**
+  Exceeds 4.00 m
+  maximum height;
+  stop
+endif
+
+' ── WEIGHT (parallel) ────────────────────────
+fork
+  if (Within trailer certified gross\nweight (Zulässige Gesamtmasse)?) then (YES)
+  else (NO)
+    #Pink:**ILLEGAL**
+    Exceeds trailer registered
+    maximum gross weight;
+    stop
+  endif
+fork again
+  if (Within vehicle towing\ncapacity (Anhängelast)?) then (YES)
+  else (NO)
+    #Pink:**ILLEGAL**
+    Exceeds vehicle permitted
+    towing capacity;
+    stop
+  endif
+end fork
+
+' ── WEIGHT DISTRIBUTION ──────────────────────
+repeat
+  :Position heavy items low and centered, over or slightly
+  ahead of the trailer axle (60 / 40 front-rear weight split);
+backward: Redistribute load and re-check;
+repeat while (Tongue weight (Stützlast) within limit?) is (NO) not (YES)
+
+' ── OVERHANG (parallel) ──────────────────────
+fork
+  :Check FRONT overhang;
+  if (Total height > 2.50 m?) then (YES — permitted)
+    :Front overhang allowed
+    up to **50 cm**;
+  else (NO — height ≤ 2.50 m)
+    #Pink:**Front overhang FORBIDDEN (0 cm)**
+    Load must not protrude past
+    the front of the trailer.
+    Applies to most car setups.;
+  endif
+fork again
+  :Check REAR overhang;
+  if (Trip distance < 100 km?) then (YES)
+    :Max rear overhang = **3.0 m**;
+  else (NO — 100 km or more)
+    :Max rear overhang = **1.5 m**;
+  endif
+fork again
+  :Check SIDE overhang;
+  if (Total width (trailer + load) ≤ 2.55 m?) then (YES)
+    :Side projection within limit;
+  else (NO)
+    #Pink:**Side overhang ILLEGAL**
+    Total width exceeds
+    2.55 m absolute limit;
+  endif
+end fork
+
+if (Actual rear overhang exceeds applicable limit?) then (YES)
+  #Pink:**ILLEGAL**
+  Rear overhang exceeds
+  the permitted maximum;
+  stop
+else (NO — within limit)
+endif
+
+if (Total vehicle + trailer + load length > 20.75 m?) then (YES)
+  #Pink:**ILLEGAL**
+  Total combined length exceeds
+  the 20.75 m maximum;
+  stop
+else (NO)
+endif
+
+' ── MARKING (parallel) ───────────────────────
+if (Rear overhang past trailer\nreflectors / lights > 1.0 m?) then (YES — marking required)
+  fork
+    :Daytime:
+    Red flag (≥ 30 × 30 cm, cross-bar)
+    max **1.50 m** above road;
+  fork again
+    :Night / poor visibility:
+    Red light (max **1.50 m**)
+    + red reflector (max **0.90 m**);
+  end fork
+else (NO — overhang ≤ 1.0 m)
+  :No rear marking required;
+endif
+
+#LightGreen:Load is StVO-compliant — safe to depart;
+stop
+
+legend right
+  **Key Limits at a Glance**
+  ──────────────────────────────────────────────────
+  Max height (vehicle + load):            ≤ 4.00 m
+  Max combined length:                    ≤ 20.75 m
+  ──────────────────────────────────────────────────
+  Front overhang (height ≤ 2.50 m):      FORBIDDEN
+  Front overhang (height > 2.50 m):      ≤ 50 cm
+  Rear overhang (trip < 100 km):          ≤ 3.0 m
+  Rear overhang (trip ≥ 100 km):          ≤ 1.5 m
+  Side overhang (trailer + load):         ≤ 2.55 m total width
+  ──────────────────────────────────────────────────
+  Marking threshold:                      > 1.0 m rear overhang
+  Daytime:   red flag ≥ 30×30 cm, max 1.50 m above road
+  Night:     red light (1.50 m) + red reflector (0.90 m)
+  ──────────────────────────────────────────────────
+  Weight split target:   60% front / 40% rear (over axle)
+endlegend
+
+@enduml

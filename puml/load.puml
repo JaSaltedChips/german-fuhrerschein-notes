@@ -1,0 +1,99 @@
+@startuml Germany_Vehicle_Load_Rules
+!theme plain
+skinparam defaultFontSize 13
+
+title Germany — Vehicle Load / Cargo Rules
+
+start
+
+:Load to be transported on vehicle;
+
+if (Vehicle combination length (car + trailer, no load) ≤ 18 m?) then (YES — within limit)
+else (NO)
+  #Pink:**ILLEGAL**
+  Vehicle combination exceeds
+  maximum permitted length of 18 m
+  (measured bumper to bumper, no load);
+  stop
+endif
+
+if (Total length including protruding load ≤ 20.75 m?) then (YES — within limit)
+else (NO)
+  #Pink:**ILLEGAL**
+  Total length (vehicle + overhanging load)
+  exceeds maximum permitted 20.75 m;
+  stop
+endif
+
+if (Total height of vehicle + cargo ≤ 4 m?) then (YES — within limit)
+else (NO)
+  #Pink:**ILLEGAL**
+  Exceeds maximum permitted
+  total height of 4 m;
+  stop
+endif
+
+fork
+  :Check FRONT overhang;
+
+  if (Height of load from ground > 2.5 m?) then (YES)
+    :Front overhang permitted up to **50 cm**;
+  else (NO — load height ≤ 2.5 m)
+    #Pink:**Front overhang FORBIDDEN (0 cm)**
+    Load must not project beyond
+    the front of the vehicle.
+    Reason: prevents blocked visibility,
+    pedestrian strikes, and dangerous
+    swinging when turning;
+  endif
+
+fork again
+  :Check REAR overhang;
+
+  if (Total driving distance < 100 km?) then (YES)
+    :Maximum rear overhang length = **3 m**;
+  else (NO — 100 km or more)
+    :Maximum rear overhang length = **1.5 m**;
+  endif
+
+  if (Actual rear overhang length > 1 m?) then (YES — marking required)
+    :Mark end of load with a bright
+    red flag (30 × 30 cm)
+    or a red cylinder;
+
+    if (Night or poor visibility?) then (YES)
+      :Replace flag/cylinder with
+      **red light** + **red reflector**
+      (Marker board)
+      Max height of red light: **1.5 m** above road surface;
+
+    else (NO — daylight, good visibility)
+      :Red flag or red cylinder
+      is sufficient;
+    endif
+  else (NO — rear overhang length ≤ 1 m)
+    :No marking required;
+  endif
+
+end fork
+
+#LightGreen:Load is legally compliant — safe to drive;
+stop
+
+legend right
+  **Key Limits at a Glance**
+  ─────────────────────────────────────────────────
+  Front overhang (load ≤ 2.5 m high):   0 cm (forbidden)
+  Front overhang (load > 2.5 m high):   max 50 cm
+  Max vehicle combination (car + trailer):  18 m     (no load — bumper to bumper)
+  Max total length (vehicle + load):        20.75 m  (up to 2.75 m load overhang beyond 18 m)
+  Max total height (vehicle + cargo):    4 m
+  Rear overhang length (< 100 km trip): ≤ 3.0 m
+  Rear overhang length (≥ 100 km trip): ≤ 1.5 m
+  Marking threshold:                     > 1 m
+  ─────────────────────────────────────────────────
+  Daytime marking:   red flag 30×30 cm or red cylinder
+  Night / poor vis:  red light + red reflector (max 1.5 m above road)
+endlegend
+
+@enduml

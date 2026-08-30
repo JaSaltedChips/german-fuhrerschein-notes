@@ -1,0 +1,56 @@
+@startuml Accident Scene Steps
+
+title Accident Scene Procedure — S·H·N
+
+start
+
+partition "S — Sichern (Secure the Scene)" {
+    :Turn on **hazard lights** immediately;
+    :Put on **high-visibility vest** (Warnweste)\nbefore exiting the vehicle;
+    :Place **warning triangle** behind the accident;
+    note right
+        Normal road: ~100m back
+        Autobahn: ~100-150m back
+    end note
+}
+
+partition "H — Helfen (First Aid)" {
+    :Check on injured persons;
+    if (Is the person unconscious?) then (yes)
+        if (Are they breathing?) then (yes)
+            :Place in **recovery position**\n(Stabile Seitenlage);
+        else (no)
+            :Begin **CPR**;
+        endif
+    else (no)
+        :Stop severe **bleeding** with pressure;
+    endif
+    note right
+        Do NOT move seriously injured
+        persons unless there is immediate
+        danger (e.g. fire).
+    end note
+}
+
+partition "N — Notruf (Emergency Call)" {
+    :Call **112** (fire / ambulance)\nor **110** (police);
+    :Give the following information;
+    note right
+        **Where?** Exact location
+        **What?** What happened
+        **How many?** Number of injured
+        **What injuries?** Type of injuries
+        **Wait** for questions —
+        do not hang up first.
+    end note
+}
+
+:Stay at the scene;
+note right
+    Leaving is a criminal offence
+    in Germany (Fahrerflucht).
+end note
+
+stop
+
+@enduml

@@ -1,0 +1,99 @@
+@startuml High Beam Rules
+
+title High Beam (Fernlicht) — When to Use & When to Switch Back
+
+start
+
+partition "Is High Beam Permitted?" {
+    if (Are you outside a built-up area\non an unlit road?) then (no)
+        :Use **dipped headlights (Abblendlicht)**;
+        note right
+            Inside built-up areas,
+            street lighting is sufficient.
+            High beam dazzles other drivers.
+        end note
+        stop
+    else (yes)
+        :Continue check;
+    endif
+
+    if (Is there oncoming traffic visible?) then (yes)
+        :Switch to / keep **dipped headlights**;
+        note right
+            Switch at ~200m or earlier.
+            High beam blinds oncoming drivers.
+        end note
+        stop
+    else (no)
+        :Continue check;
+    endif
+
+    if (Are you following closely\nbehind another vehicle?) then (yes)
+        :Use **dipped headlights**;
+        note right
+            High beam dazzles the driver
+            ahead via their mirrors.
+        end note
+        stop
+    else (no)
+        :Continue check;
+    endif
+
+    if (Is there fog, rain, or snow?) then (yes)
+        :Use **dipped headlights**;
+        note right
+            High beam reflects back off
+            fog and precipitation, actively
+            reducing visibility further.
+        end note
+        stop
+    else (no)
+        :All conditions met —\n**High beam permitted**;
+        note right
+            Illuminates 100–150m ahead.
+            Dipped headlights only cover
+            40–60m — insufficient at speed
+            on a dark unlit road.
+        end note
+    endif
+}
+
+partition "When to Switch Back to Dipped Headlights" {
+    if (Oncoming vehicle becomes visible?) then (yes)
+        :Switch to **dipped headlights** immediately;
+        stop
+    endif
+    if (Now following another vehicle?) then (yes)
+        :Switch to **dipped headlights** immediately;
+        stop
+    endif
+    if (Entering a built-up area?) then (yes)
+        :Switch to **dipped headlights**;
+        stop
+    endif
+    if (Fog, rain, or snow begins?) then (yes)
+        :Switch to **dipped headlights**;
+        stop
+    endif
+    :Continue on high beam;
+}
+
+partition "High Beam Assist (Fernlichtassistent)" {
+    note
+        A camera-based driver assistance system —
+        not the headlight itself.
+        ----
+        Automatically switches between high beam
+        and dipped headlights by detecting:
+        - Oncoming vehicles
+        - Vehicles ahead
+        ----
+        Applies the same rules as manual use —
+        removes the burden of switching manually
+        so the driver cannot forget or react too late.
+    end note
+}
+
+stop
+
+@enduml

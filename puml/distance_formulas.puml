@@ -1,0 +1,15 @@
+@startmindmap Distance Formulas
+
+title Driving Distance Formulas (Faustformeln)
+
+* Anhalteweg (Stopping Distance)\n= Reaktionsweg + Bremsweg
+** Reaktionsweg\n(Reaction Distance)\n(speed ÷ 10) × 3
+** Bremsweg\n(Normal Braking Distance)\n(speed ÷ 10)²
+** Gefahrenbremsung\n(Emergency Braking Distance)\n(speed ÷ 10)² ÷ 2
+
+legend
+    **Reaction distance** always included — the car travels at full speed
+    for ~1 second before the brakes engage.
+    Cannot be skipped: human reaction is never instant.
+end legend
+@endmindmap

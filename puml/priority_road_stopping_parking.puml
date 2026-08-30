@@ -1,0 +1,87 @@
+@startuml Stopping and Parking on Priority Roads
+
+title Stopping & Parking on Priority Roads (Vorfahrtsstraße)
+
+partition "Outside Built-Up Area (Außerorts)" {
+    start
+    if (Do you want to park?) then (yes)
+        :PROHIBITED;
+        note right
+            Parking on priority roads
+            outside towns is forbidden.
+            High speeds make parked
+            vehicles dangerous.
+        end note
+        stop
+    else (no — brief stop only)
+        if (Is a shoulder (Seitenstreifen) available?) then (yes)
+            :Stop on the **shoulder**;
+            note right
+                You must use the shoulder.
+                Stopping in the driving lane
+                when a shoulder exists
+                is not permitted.
+            end note
+        else (no)
+            :Stop at the far **right edge**\nof the road;
+            :Turn on **hazard lights**;
+            :Place **warning triangle** ~100m back;
+        endif
+        stop
+    endif
+}
+
+partition "Inside Built-Up Area (Innerorts)" {
+    start
+    if (Do you want to park?) then (yes)
+        if (Are there prohibiting signs?\n(no-waiting / no-stopping)) then (yes)
+            :Follow the sign restriction;
+            note right
+                No-waiting (1 stripe): brief stop OK.
+                No-stopping (2 stripes / X): no stop at all.
+            end note
+        else (no)
+            :Parking **PERMITTED**;
+            note right
+                Normal parking rules apply.
+                Lower speeds inside towns
+                make parking safer.
+            end note
+        endif
+    else (no — brief stop only)
+        :Stopping **PERMITTED**;
+        note right
+            Unless a no-stopping sign
+            (absolutes Halteverbot) is present.
+        end note
+    endif
+    stop
+}
+
+
+partition "Autobahn Hard Shoulder (Standstreifen)" {
+    start
+    if (Genuine emergency or breakdown?) then (yes)
+        :Pull onto hard shoulder as far right as possible;
+        :Switch on **hazard lights** immediately;
+        :Put on **high-visibility vest** before exiting;
+        :Place **warning triangle** at least **200m** behind;
+        note right
+            200m minimum — much further
+            than on normal roads due to
+            high approach speeds.
+        end note
+        stop
+    else (no)
+        :PROHIBITED;
+        note right
+            No stopping for rest,
+            phone calls, map-reading,
+            or any non-emergency reason.
+            Parking is forbidden entirely.
+        end note
+        stop
+    endif
+}
+
+@enduml

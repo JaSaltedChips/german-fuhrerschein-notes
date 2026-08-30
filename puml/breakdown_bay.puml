@@ -1,0 +1,49 @@
+@startuml Emergency Stop and Breakdown Bay
+
+title Emergency Stop / Breakdown Bay (Nothaltebucht) vs Hard Shoulder (Standstreifen)
+
+legend
+    | **Feature**      | **Standstreifen**             | **Nothaltebucht**                      |
+    | Shape            | Continuous strip              | Recessed alcoves at intervals          |
+    | Location         | Open motorways                | Tunnels / roads without shoulders      |
+    | Availability     | Anywhere along the road       | Only at specific points                |
+    | Purpose          | Emergency stopping            | Emergency stopping where no shoulder exists |
+end legend
+
+start
+
+partition "Behaviour when Breaking Down near a Nothaltebucht" {
+    :Vehicle breaks down;
+    if (Can you keep rolling?) then (yes)
+        :Steer towards the nearest **Nothaltebucht**;
+        note right
+            Do NOT stop in the driving lane
+            or tunnel if you can reach the bay.
+        end note
+    else (no)
+        :Stop as far right as possible;
+    endif
+
+    :Turn on **hazard lights**;
+    :Switch off the **engine**;
+    note right
+        Especially important in tunnels
+        to prevent fume buildup.
+    end note
+    :Exit the vehicle and stay in\nthe bay away from traffic;
+
+    if (Is there fire or serious danger?) then (yes)
+        :Follow **emergency exit signs** (Notausgang)\ndo not stay with the vehicle;
+        stop
+    else (no)
+        :Call for help via nearby\n**emergency phone (Notrufsäule)**\nor dial **112**;
+        note right
+            Emergency phones are usually
+            located near breakdown bays.
+        end note
+        :Do NOT attempt repairs on the carriageway;
+        stop
+    endif
+}
+
+@enduml

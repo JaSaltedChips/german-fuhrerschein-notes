@@ -1,0 +1,99 @@
+@startuml Fog Lamps - German Driving Rules
+
+title Fog Lamps (Nebelleuchten) — §17 StVO
+
+start
+
+partition "Rear Fog Lamp (Nebelschlussleuchte) — MANDATORY" {
+    :Driving conditions deteriorate\n(fog / snow / heavy rain);
+    if (Is visibility below 50 metres?) then (yes)
+        :Turn ON rear fog lamp;
+        note right
+            **Mandatory** at visibility < 50m.
+            Failure to use is a traffic offence.
+        end note
+        :Continue driving;
+        if (Does visibility improve above 50m?) then (yes)
+            :Turn OFF rear fog lamp;
+            note right
+                Leaving it on dazzles the driver
+                behind and masks your brake lights.
+                Leaving it on unnecessarily
+                is a traffic offence.
+            end note
+        else (no)
+            :Keep rear fog lamp ON;
+        endif
+    else (no)
+        :Do NOT use rear fog lamp;
+        note right
+            Using it in good visibility
+            is a traffic offence.
+        end note
+    endif
+}
+
+partition "Front Fog Lamps (Nebelscheinwerfer) — PERMITTED" {
+    :Driving conditions deteriorate\n(fog / snow / heavy rain);
+    if (Is visibility significantly reduced?) then (yes)
+        :Turn ON front fog lamps;
+        note right
+            **Permitted, not mandatory.**
+            No fixed 50m rule.
+            Use when visibility is
+            noticeably impaired.
+            Lamps are mounted low to
+            illuminate road without
+            reflecting back off fog.
+        end note
+    else (no)
+        :Front fog lamps not needed;
+    endif
+}
+
+partition "Headlights in Fog" {
+    :Fog / reduced visibility conditions;
+    :Use **dipped headlights (Abblendlicht)**;
+    :Do NOT use **full beam (Fernlicht)**;
+    note right
+        Full beam reflects back off the fog
+        and reduces visibility further
+        instead of improving it.
+    end note
+}
+
+partition "Speed Limit in Fog (Motorway / Autobahn)" {
+    :Visibility drops below 50m on motorway;
+    :Maximum speed: **50 km/h**;
+    note right
+        Applies regardless of the normal
+        motorway speed limit (130 km/h
+        advisory or unlimited).
+    end note
+    :Why 50 km/h? — Sichtfahrgebot (§3 StVO);
+    note right
+        You must always drive at a speed that
+        allows you to stop within your
+        visibility range.
+        ----
+        At 50 km/h emergency stopping distance:
+        Reaktionsweg: (50÷10) × 3 = 15m
+        Gefahrenbremsung: (50÷10)² ÷ 2 = 12.5m
+        Total: 27.5m — within the 50m range.
+        ----
+        At higher speeds, stopping distance
+        exceeds visibility range — collision
+        with an obstacle becomes unavoidable.
+    end note
+    :Additional obligations;
+    note right
+        - Rear fog lamp ON (mandatory)
+        - Front fog lamps ON (permitted)
+        - Dipped headlights — no full beam
+        - Increase following distance
+    end note
+}
+
+stop
+
+@enduml

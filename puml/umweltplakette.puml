@@ -1,0 +1,106 @@
+@startuml Germany_Umweltplakette
+!theme plain
+skinparam defaultFontSize 13
+
+title Germany — Particulate Emissions Sticker\n(Umweltplakette / Umweltzone)
+
+start
+
+:Vehicle approaching a\nlow-emission zone (Umweltzone);
+
+if (Is vehicle a motorcycle, scooter,\ntrike, or quad (≤ 3 wheels)?) then (YES)
+  #LightGreen:EXEMPT — no sticker needed\n2/3-wheeled vehicles are fully\nexcluded from the requirement;
+  stop
+endif
+
+if (Does vehicle have an "H"\n(historic / vintage) license plate?) then (YES)
+  #LightGreen:EXEMPT — no sticker needed\nHistoric H-plate vehicles\nare excluded;
+  stop
+endif
+
+if (Is vehicle an agricultural\nor forestry tractor?) then (YES)
+  #LightGreen:EXEMPT — no sticker needed\nAgricultural and forestry tractors\nare excluded from the requirement;
+  stop
+endif
+
+if (Is vehicle a pure battery\nelectric vehicle (BEV)?) then (YES)
+  if (Does license plate end with "E"?) then (YES)
+    #LightGreen:EXEMPT — "E" plate itself\nserves as legal proof\nNo sticker required;
+    stop
+  else (NO — standard plate without "E")
+    :Must display green sticker\nso wardens can identify\nthe vehicle as compliant;
+  endif
+else (NO)
+  if (Is vehicle a plug-in hybrid (PHEV)?) then (YES)
+    :Must display green sticker\nCombustion engine present —\n"E" plate does NOT exempt PHEVs;
+  else (NO — standard combustion engine)
+    :Must display green sticker;
+  endif
+endif
+
+if (Valid GREEN sticker already displayed?) then (YES)
+  note right
+    Only GREEN is valid.
+    Red and yellow stickers
+    are fully phased out.
+  end note
+  #LightGreen:Legally compliant —\nzone entry permitted;
+  stop
+else (NO — missing or wrong colour)
+  #Pink:**€100 FINE**
+  Entering Umweltzone without
+  a valid green sticker;
+
+  :Obtain green sticker;
+
+  fork
+    :IN PERSON
+    ─────────────────
+    Present vehicle papers at:
+    ▸ TÜV
+    ▸ DEKRA
+    ▸ Registration office
+    Cost: **€5 – €7**;
+  fork again
+    :ONLINE
+    ─────────────────
+    Order via official
+    city portals (e.g. Berlin.de)
+    Cost: **~€6**;
+  end fork
+
+  :Affix sticker to windshield;
+
+  note right
+    **Correct placement:**
+    Inside lower-right corner of
+    front windshield (passenger side),
+    facing outward — permanently glued.
+  end note
+
+  #LightGreen:Now legally compliant;
+  stop
+endif
+
+legend right
+  **Quick Reference**
+  ──────────────────────────────────────────────
+  Valid sticker colour:    GREEN only (red & yellow phased out)
+  Fine for no sticker:     €100
+  ──────────────────────────────────────────────
+  EXEMPT vehicles:
+    ▸ Motorcycles / scooters / trikes / quads
+    ▸ Historic vehicles (H-plate)
+    ▸ Agricultural and forestry tractors
+    ▸ Pure BEVs with "E" on license plate
+  ──────────────────────────────────────────────
+  NOT exempt (sticker required):
+    ▸ PHEVs — even with "E" plate
+    ▸ BEVs without "E" on license plate
+  ──────────────────────────────────────────────
+  Placement: inside windshield, lower-right
+             (passenger side), facing outward
+  Price:     €5–€7 in person / ~€6 online
+endlegend
+
+@enduml

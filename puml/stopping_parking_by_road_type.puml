@@ -13,13 +13,22 @@ title Stopping & Parking — Rules by Road Type (§12–14 StVO)
 partition "Priority Road — Außerorts (Outside Built-Up Area)" #FFD9C0 {
     start
     if (Do you want to park?) then (yes)
-        :PROHIBITED;
-        note right
-            Parking on priority roads
-            outside towns is forbidden.
-            High speeds make parked
-            vehicles dangerous.
-        end note
+        if (Is a shoulder (Seitenstreifen)\navailable and sufficiently solid?) then (yes)
+            :Park on the **shoulder**;
+            note right
+                Parking on the carriageway
+                is prohibited. The shoulder
+                is permitted (§12 Abs. 4 StVO).
+            end note
+        else (no)
+            :PROHIBITED;
+            note right
+                No shoulder available —
+                parking on the carriageway
+                of a priority road außerorts
+                is forbidden.
+            end note
+        endif
         stop
     else (no — brief stop only)
         if (Is a shoulder (Seitenstreifen) available?) then (yes)

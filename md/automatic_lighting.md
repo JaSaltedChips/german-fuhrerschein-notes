@@ -41,7 +41,7 @@ No sensor can reliably determine whether visibility has fallen below 50 metres d
 | Dipped headlights in tunnels | **Yes — automatic** |
 | Rear fog lamp (Nebelschlussleuchte) | **No — manual only** |
 | Front fog lamps (Nebelscheinwerfer) | **No — manual only** |
-| High beam (Fernlicht) | **No** — unless high beam assist (Fernlichtassistent) is also fitted |
+| High beam (Fernlicht) | **No** — unless [high beam assist (Fernlichtassistent)](high_beam_assist.md) is also fitted |
 
 ---
 

@@ -14,7 +14,7 @@
 | **80 km/h** | Car with trailer outside built-up area |
 | **80 km/h** | Combination vehicle (≤3.5t) with trailer without 100 km/h approval on motorway |
 | **100 km/h** | Outside built-up areas (außerorts) — default for cars and motorcycles |
-| **100 km/h** | Combination vehicle (≤3.5t) with 100 km/h approval on federal highway (not motorway) — still capped at 80 km/h on motorway without approval |
+| **100 km/h** | Combination vehicle (≤3.5t) with 100 km/h approval on federal highway (not expressway) — still capped at 80 km/h because this federal higway, not motorway (expressway) |
 | **130 km/h** | Motorway advisory speed (Richtgeschwindigkeit) — recommended, not a hard limit |
 | **>60 km/h** | Minimum speed capability required to use the Autobahn — must be entered in registration certificate Part 1 |
 

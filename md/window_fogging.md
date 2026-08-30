@@ -76,7 +76,7 @@ The correct steps are:
 1. **Switch to Frischluft mode** — ensure fresh outside air is being drawn in, not recirculated cabin air
 2. **Turn ventilation ON and direct air at the windscreen** — warm airflow evaporates the condensation on the glass
 3. **Switch AC on** — the AC actively removes moisture from the air, accelerating the demisting process
-4. **Open windows slightly** — allows moist cabin air to escape
+4. **Open windows slightly** — allows moist cabin air to escape, but only helps if outside air is less humid than the cabin air (effective in cold weather; counterproductive in heavy rain or very humid conditions outside)
 5. **Use the rear window heater (Heckscheibenheizung)** — clears the back window independently
 
 ### What NOT to do
@@ -138,6 +138,6 @@ mindmap
       Switch to Frischluft
       Direct warm air at windscreen
       Turn AC on
-      Open windows slightly
+      Open windows slightly - only if outside air is drier than cabin air
       Use rear window heater
 ```

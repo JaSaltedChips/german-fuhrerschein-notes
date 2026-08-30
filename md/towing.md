@@ -23,7 +23,7 @@ When towing a trailer, the normal speed limits no longer apply. Reduced limits a
 | Outside built-up areas (außerorts) | **80 km/h** (reduced from 100) |
 | Motorway (Autobahn) | **80 km/h** (reduced from 130) |
 
-**Exception — the 100 km/h approval:** If the trailer has been officially tested and approved, it may carry a **"100" sticker**. In that case, the limit outside built-up areas and on motorways rises to **100 km/h**.
+**Exception — the 100 km/h approval:** If the trailer has been officially tested and approved, it may carry a **"100" sticker**. In that case, the limit on **motorways only** rises to **100 km/h**. Outside built-up areas (Landstraße, Bundesstraße), the limit remains **80 km/h** even with the approval.
 
 ### Braking System
 
@@ -158,8 +158,8 @@ Electric vehicles are nearly silent at low speeds, which poses a danger to pedes
 
 | Rule | Trailer towing | Towing broken-down vehicle |
 |---|---|---|
-| Max speed (motorway) | **80 km/h** (or 100 with sticker) | **50 km/h** |
-| Max speed (außerorts) | **80 km/h** (or 100 with sticker) | **50 km/h** |
+| Max speed (motorway) | **80 km/h** (or 100 with approved sticker) | **50 km/h** |
+| Max speed (außerorts) | **80 km/h** | **50 km/h** |
 | Hazard lights | Not required | **Both vehicles — mandatory** |
 | Driver in towed vehicle | N/A | **Mandatory** |
 | Permitted on motorway | Yes | **No** |

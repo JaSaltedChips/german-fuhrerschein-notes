@@ -85,3 +85,5 @@ When dealing with a trailer parking question, work through these in order:
 2. **Does it exceed 2 tonnes permissible total mass?**
    - Yes → also check the day and time before parking in a built-up area
    - No → the 2-week general rule applies without further restriction
+
+![Trailer Parking](../puml/trailer_parking/Trailer Parking Rules.png)

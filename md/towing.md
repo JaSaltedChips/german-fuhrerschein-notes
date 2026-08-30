@@ -43,6 +43,12 @@ Trailers with a permissible total mass (*zulässige Gesamtmasse*) exceeding **75
 - The towing vehicle's **number plate** must be displayed at the rear of the trailer
 - The driver must have adequate **rear visibility** — extended mirrors may be required if the trailer is wider than the towing vehicle
 
+### Trailer Parked Without a Towing Vehicle
+
+A trailer parked without its towing vehicle must display a **red-and-white warning plate (Warnschild)** at the rear.
+
+**Why:** When uncoupled, the trailer has no connection to the towing vehicle's electrical system — meaning no rear lights, no brake lights, and no indicators. At night or in poor visibility, it becomes effectively invisible to other road users. The red-and-white warning plate serves as a passive reflective marker to warn approaching traffic that an obstacle is present.
+
 ---
 
 ## Part 2 — Towing a Broken-Down Vehicle (Abschleppen)

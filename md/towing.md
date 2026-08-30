@@ -1,5 +1,7 @@
 # Towing Rules (Abschleppen & Anhänger) — Germany
 
+![Towing Rules](../puml/towing/Towing%20Rules.png)
+
 ## Overview
 
 Towing in Germany covers two distinct situations, each governed by its own set of rules:
